@@ -4,17 +4,14 @@ import {GlobalContext} from '../context/GlobalState'
 
 const AddTransaction = () => {
     const {addIncome, addExpense} = useContext(GlobalContext)
-
     const [income, setIncome] = useState({
         incomeText: "",
         incomeAmount: 0 
     })
-
     const [expense, setExpense] = useState({
         expenseText: "",
         expenseAmount: 0 
     })
-
     const {incomeText, incomeAmount} = income;
     const {expenseText, expenseAmount} = expense;
 
@@ -24,7 +21,6 @@ const AddTransaction = () => {
     const onChangeExpense = (e) => {
         setExpense({...expense, [e.target.name]: e.target.value})
     }
-
     const onSubmitIncome = (e) => {
         e.preventDefault();
 
@@ -34,9 +30,7 @@ const AddTransaction = () => {
                 incomeText,
                 incomeAmount: incomeAmount * 1,
             }
-
             addIncome(newIncomeTransaction)
-
             setIncome({
                 incomeText: '',
                 incomeAmount: 0
@@ -53,13 +47,11 @@ const AddTransaction = () => {
                 expenseText,
                 expenseAmount: expenseAmount * 1,
             }
-
-        addExpense(newExpenseTransaction)
-
-        setExpense({
-            expenseText: '',
-            expenseAmount: 0
-        })
+            addExpense(newExpenseTransaction)
+            setExpense({
+                expenseText: '',
+                expenseAmount: 0
+            })
         }
     }
 
@@ -98,7 +90,7 @@ const AddTransaction = () => {
                     type="number" 
                     placeholder="Amount" 
                     autoComplete="off"
-                    name="expenseText" 
+                    name="expenseAmount" 
                     onChange={onChangeExpense} 
                     value={expenseAmount} />
                     <input type="submit" value="Submit" />
